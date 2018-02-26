@@ -11,10 +11,17 @@ plugins {
 
 apply plugin: 'at.mikemitterer.gradle.hellokotlin'
 
-greeting {
-    message = "Mike1"
-}
+//afterEvaluate {
+//    def msg = new at.mikemitterer.gradle.hellokotlin.GreetingPluginExtension()
+//}
+
+//greeting {
+//    message = "Mike1"
+//}
 
 task consumerSample(type: at.mikemitterer.gradle.hellokotlin.KotlinExampleTask) {
     //messageText = "Mike"
+//    doLast {
+//        println("ABC $msg")
+//    }
 }

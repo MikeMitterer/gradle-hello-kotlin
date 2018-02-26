@@ -20,7 +20,7 @@ open class KotlinExampleTask : DefaultTask() {
         println("Message: ${message}")
     }
 
-    val message : String
+    private val message : String
         get() {
             val extension = project.extensions.findByType(GreetingPluginExtension::class.java)
             return extension?.message ?: "abc"
