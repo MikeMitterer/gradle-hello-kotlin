@@ -1,0 +1,27 @@
+package at.mikemitterer.gradle.helloworld
+
+import at.mikemitterer.gradle.hellokotlin.KotlinExampleTask
+import at.mikemitterer.gradle.hellokotlin.Tasks
+import org.gradle.api.Project
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.Assert.assertTrue
+import org.junit.Before
+import org.junit.Ignore
+import org.junit.Test
+
+class KotlinExampleTaskTest {
+
+    lateinit var project: Project
+
+    @Before
+    fun setUp() {
+        project = ProjectBuilder.builder().build()
+    }
+
+    @Test
+    @Ignore()
+    fun `test type of task`() {
+        val task = project.tasks.create(Tasks.runKotlinExample, KotlinExampleTask::class.java)
+        assertTrue(task is KotlinExampleTask)
+    }
+}

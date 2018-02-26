@@ -1,0 +1,20 @@
+buildscript {
+    repositories {  jcenter();  mavenLocal()  }
+    dependencies {
+        classpath "at.mikemitterer.gradle:hellokotlin:1.0.0"
+    }
+}
+
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.2.21"  // Version: https://goo.gl/RriFBZ
+}
+
+apply plugin: 'at.mikemitterer.gradle.hellokotlin'
+
+greeting {
+    message = "Mike1"
+}
+
+task consumerSample(type: at.mikemitterer.gradle.hellokotlin.KotlinExampleTask) {
+    //messageText = "Mike"
+}

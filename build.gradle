@@ -1,0 +1,101 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.2.21"  // Version: https://goo.gl/RriFBZ
+    id 'com.gradle.plugin-publish' version '0.9.10' // Version: https://goo.gl/E4FViC
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'java-gradle-plugin'
+apply plugin: 'maven-publish'
+
+group GROUP
+version VERSION_NAME
+
+jar {
+    //dependsOn "test"
+    baseName = baseName.toLowerCase()
+    archivesBaseName = archivesBaseName.toLowerCase()
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+
+    //maven { url "file:///Volumes/Daten/DevLocal/DevKotlin/Gradle/helloWorld/repo" }
+}
+
+ext {
+    kotlinVersion = "1.2.21"  // Version: https://goo.gl/RriFBZ
+    junitVersion = "4.12"   // Version: https://goo.gl/agmWKy
+}
+
+dependencies {
+    compileOnly gradleApi()
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: kotlinVersion
+
+    // Tests
+    testCompile gradleTestKit()
+    testImplementation group: 'junit', name: 'junit', version: junitVersion
+}
+
+compileKotlin { kotlinOptions { jvmTarget = "1.8" } }
+compileTestKotlin { kotlinOptions { jvmTarget = "1.8" } }
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            groupId project.group
+            artifactId jar.baseName
+            version project.version
+        }
+    }
+}
+
+// * * * * * * * * * * * *
+// Project configuration
+// * * * * * * * * * * * *
+
+project.description = 'Demo plugin to use as a starting point for custom plugin development'
+project.group = 'at.mikemitterer.gradle'
+project.version = '1.0.0'
+
+project.ext.name = 'hellokotlin'
+project.ext.pluginId = 'at.mikemitterer.gradle.hellokotlin'
+project.ext.scm = 'scm:git@github.com:Praqma/gradle-plugin-bootstrap.git'
+project.ext.url = 'https://github.com/Praqma/gradle-plugin-bootstrap'
+
+// Configuration for: java-gradle-plugin
+gradlePlugin {
+    plugins {
+        demoPlugin {
+            id = project.pluginId
+            implementationClass = 'at.mikemitterer.gradle.hellokotlin.KotlinExamplePlugin'
+        }
+    }
+}
+
+//pluginBundle {
+//    website = WEBSITE
+//    vcsUrl = VCSURL
+//    plugins {
+//        gradlePluginKotlinExample {
+//            id = PLUGIN_ID
+//            displayName = DISPLAY_NAME
+//            description = DESCRIPTION
+//            tags = ['Gradle', 'plugin', 'Kotlin', 'example']
+//            version = VERSION_NAME
+//        }
+//    }
+//}
+
+task deploy(
+        group: "Hello-Kotlin plugin",
+        description: "Sample Gradle-Plugin written in Kotlin",
+        dependsOn: publishToMavenLocal
+) {
+    doLast {
+        println("Project-Group:    ${project.group}")
+        println("ID:               ${jar.baseName}")
+    }
+}
