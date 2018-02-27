@@ -1,7 +1,5 @@
-package at.mikemitterer.gradle.helloworld
+package at.mikemitterer.gradle.hellokotlin
 
-import at.mikemitterer.gradle.hellokotlin.KotlinExamplePlugin
-import at.mikemitterer.gradle.hellokotlin.Tasks
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Before

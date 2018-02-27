@@ -1,7 +1,22 @@
 buildscript {
-    repositories {  jcenter();  mavenLocal()  }
+    repositories {
+        jcenter()
+        // mavenLocal()
+
+        // Artifactory / Nexus 3
+        //      Die URL bzw. Username + Password sind in
+        //          ~/.gradle/gradle.properties
+        //      definiert! (Sowohl am Mac als auch am Jenkins-Server)
+        maven {
+            url "${artifactory_url}/artifactory/libs-release-local/"
+            credentials {
+                username = "${artifactory_username}"
+                password = "${artifactory_password}"
+            }
+        }
+    }
     dependencies {
-        classpath "at.mikemitterer.gradle:hellokotlin:1.0.0"
+        classpath "at.mikemitterer.gradle:hellokotlin:1.0.1"
     }
 }
 
@@ -9,7 +24,7 @@ plugins {
     id "org.jetbrains.kotlin.jvm" version "1.2.21"  // Version: https://goo.gl/RriFBZ
 }
 
-apply plugin: 'at.mikemitterer.gradle.hellokotlin'
+apply plugin: 'at.mikemitterer.hello-kotlin'
 
 greeting {
     message = gradle.ext.messageInSettings

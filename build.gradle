@@ -1,15 +1,6 @@
-plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.21"  // Version: https://goo.gl/RriFBZ
-    id 'com.gradle.plugin-publish' version '0.9.10' // Version: https://goo.gl/E4FViC
-}
-
-apply plugin: 'java'
 apply plugin: 'kotlin'
-apply plugin: 'java-gradle-plugin'
-apply plugin: 'maven-publish'
 
-group GROUP
-version VERSION_NAME
+version "0.0.1"
 
 jar {
     //dependsOn "test"
@@ -57,13 +48,13 @@ publishing {
 // * * * * * * * * * * * *
 
 project.description = 'Demo plugin to use as a starting point for custom plugin development'
-project.group = 'at.mikemitterer.gradle'
-project.version = '1.0.0'
+project.group = group
+project.version = '1.0.1'
 
-project.ext.name = 'hellokotlin'
-project.ext.pluginId = 'at.mikemitterer.gradle.hellokotlin'
-project.ext.scm = 'scm:git@github.com:Praqma/gradle-plugin-bootstrap.git'
-project.ext.url = 'https://github.com/Praqma/gradle-plugin-bootstrap'
+project.ext.name = 'hello-kotlin'
+project.ext.pluginId = 'at.mikemitterer.hello-kotlin'
+project.ext.scm = 'scm:git@github.com:MikeMitterer/gradle-hello-kotlin.git'
+project.ext.url = 'https://github.com/MikeMitterer/gradle-hello-kotlin'
 
 // Configuration for: java-gradle-plugin
 gradlePlugin {
@@ -92,7 +83,7 @@ gradlePlugin {
 task deploy(
         group: "Hello-Kotlin plugin",
         description: "Sample Gradle-Plugin written in Kotlin",
-        dependsOn: publishToMavenLocal
+        dependsOn: [ publishToMavenLocal, artifactoryPublish ]
 ) {
     doLast {
         println("Project-Group:    ${project.group}")
