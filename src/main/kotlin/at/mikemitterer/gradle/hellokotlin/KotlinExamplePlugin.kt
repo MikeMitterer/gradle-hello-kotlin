@@ -5,7 +5,7 @@ import org.gradle.api.Project
 
 //var configuration: GreetingPluginExtension = GreetingPluginExtension()
 
-class GreetingPluginExtension {
+open class GreetingPluginExtension {
     var message: String = "Hello from GreetingPlugin"
 }
 

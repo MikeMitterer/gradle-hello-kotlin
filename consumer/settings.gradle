@@ -1,0 +1,1 @@
+gradle.ext.messageInSettings = "From settings"

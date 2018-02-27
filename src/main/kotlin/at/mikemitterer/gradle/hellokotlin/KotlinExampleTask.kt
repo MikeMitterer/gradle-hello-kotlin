@@ -7,8 +7,11 @@ open class KotlinExampleTask : DefaultTask() {
     lateinit var messageText: String
 
     init {
-        project.plugins.apply(KotlinExamplePlugin::class.java)
-
+//        val plugin = project.extensions.findByType(KotlinExamplePlugin::class.java)
+//        if(plugin == null) {
+//            project.plugins.apply(KotlinExamplePlugin::class.java)
+//        }
+        
         group = "sample"
         description = "Sample-Task written in Kotlin"
     }

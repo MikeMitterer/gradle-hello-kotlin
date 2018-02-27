@@ -6,7 +6,6 @@ import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Assert.assertTrue
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 
 class KotlinExampleTaskTest {
@@ -19,7 +18,6 @@ class KotlinExampleTaskTest {
     }
 
     @Test
-    @Ignore()
     fun `test type of task`() {
         val task = project.tasks.create(Tasks.runKotlinExample, KotlinExampleTask::class.java)
         assertTrue(task is KotlinExampleTask)
