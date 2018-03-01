@@ -1,5 +1,9 @@
-# gradle-plugin-kotlin-example
+# HelloKotlin - gradle-plugin-kotlin-example
 A Gradle plugin example written in Kotlin
+
+## Tasks define by plugin
+
+   - **runKotlinExample**
 
 ## Usage
 
