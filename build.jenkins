@@ -1,0 +1,37 @@
+pipeline {
+    agent { label 'linux' }
+
+    stages {
+        stage('Build') {
+            steps {
+                ansiColor('xterm') {
+                    sh 'gradle assemble'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                ansiColor('xterm') {
+                    sh 'gradle test'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                ansiColor('xterm') {
+                    sh 'gradle deploy'
+                }
+            }
+        }
+    }
+    
+/*  Reminder
+    post {
+        always {
+            ansiColor('xterm') {
+                sh 'docker/_ci/run.sh --stop'
+            }
+        }
+    }
+*/
+}
