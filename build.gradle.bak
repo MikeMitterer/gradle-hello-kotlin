@@ -17,11 +17,11 @@ repositories {
 
 dependencies {
     compileOnly gradleApi()
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: version_kotlin
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: kotlinVersion
 
     // Tests
     testCompile gradleTestKit()
-    testImplementation group: 'junit', name: 'junit', version: version_junit
+    testImplementation group: 'junit', name: 'junit', version: junitVersion
 }
 
 // Für "publishToMavenLocal"
