@@ -21,7 +21,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.30"  // Version: https://goo.gl/RriFBZ
+    id "org.jetbrains.kotlin.jvm" version "1.2.31"  // Version: https://goo.gl/RriFBZ
 }
 
 apply plugin: 'at.mikemitterer.hello-kotlin'
