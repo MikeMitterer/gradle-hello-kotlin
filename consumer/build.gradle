@@ -8,7 +8,7 @@ buildscript {
         //          ~/.gradle/gradle.properties
         //      definiert! (Sowohl am Mac als auch am Jenkins-Server)
         maven {
-            url "${artifactory_url}/artifactory/libs-release-local/"
+            url "${artifactory_url}/artifactory/${artifactory_repo}/"
             credentials {
                 username = "${artifactory_username}"
                 password = "${artifactory_password}"

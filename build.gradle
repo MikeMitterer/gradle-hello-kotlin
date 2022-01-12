@@ -1,8 +1,6 @@
-import at.mikemitterer.gitversion.VersionKt
-
 apply plugin: 'kotlin'
 
-version VersionKt.version()
+version = version()
 
 jar {
     //dependsOn "test"
