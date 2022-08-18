@@ -4,7 +4,7 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
 open class KotlinExampleTask : DefaultTask() {
-    lateinit var messageText: String
+    // lateinit var messageText: String
 
     init {
 //        val plugin = project.extensions.findByType(KotlinExamplePlugin::class.java)

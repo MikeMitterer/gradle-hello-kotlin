@@ -1,6 +1,8 @@
+import at.mikemitterer.gitversion.version.SemVer
+
 apply plugin: 'kotlin'
 
-version = version()
+version = SemVer.INSTANCE.version()
 
 jar {
     //dependsOn "test"
@@ -15,10 +17,10 @@ repositories {
 
 dependencies {
     compileOnly gradleApi()
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: version_kotlin
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: version_kotlin
 
     // Tests
-    testCompile gradleTestKit()
+    testImplementation gradleTestKit()
     testImplementation group: 'junit', name: 'junit', version: version_junit
 }
 
